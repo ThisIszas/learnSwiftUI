@@ -10,6 +10,7 @@ import SwiftUI
 struct LandmarkDetail: View {
     /// 因为不需要动态更新, 所以不用@State
     var landmark: Landmark
+    @State private var str1: String = "1";
 
     var body: some View {
         /// VStack不能滑动
@@ -25,6 +26,10 @@ struct LandmarkDetail: View {
             VStack(alignment: .leading) {
                 Text(landmark.name)
                     .font(.title)
+                Text($str1.wrappedValue).foregroundColor(.red)
+                Button("hello") {
+                    str1 += "1";
+                }
 
                 HStack {
                     Text(landmark.park)
